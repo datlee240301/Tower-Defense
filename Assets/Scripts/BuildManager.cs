@@ -8,14 +8,17 @@ public class BuildManager : MonoBehaviour {
         }
         instance = this;
     }
-    private GameObject turretToBuild;
+    private TurretBlueprint turretToBuild;
     public GameObject standardTurretPrefab;
     public GameObject missleLauncherPrefab;
-    public GameObject GetTurretToBuild() {
-        return turretToBuild;
+    public bool CanBuild { get { return turretToBuild != null; } }  
+
+    public void BuildTurretOn(Node node) {
+        GameObject turret =  (GameObject)Instantiate(turretToBuild.prefab, node.GetBuildPosition(), Quaternion.identity);
+        node.turret = turret;
     }
 
-    public void SetTurretToBuild(GameObject turret) {
-        turretToBuild = turret;
+    public void SelectTurretToBuild(TurretBlueprint turret) {
+        turretToBuild = turret; 
     }
 }

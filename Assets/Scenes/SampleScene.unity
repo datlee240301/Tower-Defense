@@ -10739,6 +10739,7 @@ GameObject:
   - component: {fileID: 1408412794}
   - component: {fileID: 1408412796}
   - component: {fileID: 1408412795}
+  - component: {fileID: 1408412797}
   m_Layer: 5
   m_Name: Shop
   m_TagString: Untagged
@@ -10806,6 +10807,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1408412793}
   m_CullTransparentMesh: 1
+--- !u!114 &1408412797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1408412793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9094affaee9d5e45ae8c70860043c10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  standardTurret:
+    prefab: {fileID: 8760420164693242340, guid: 24e5c9fb714a2f245a6b5ec4ab0740c8, type: 3}
+    cost: 100
+  missleLauncher:
+    prefab: {fileID: 473836493727486499, guid: bbe36735e98c06b4e9b0b731f4f4b82e, type: 3}
+    cost: 0
 --- !u!1001 &1411904149
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13288,6 +13307,7 @@ GameObject:
   - component: {fileID: 1774852864}
   - component: {fileID: 1774852863}
   - component: {fileID: 1774852865}
+  - component: {fileID: 1774852866}
   m_Layer: 0
   m_Name: GameMaster
   m_TagString: Untagged
@@ -13340,6 +13360,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   standardTurretPrefab: {fileID: 8760420164693242340, guid: 24e5c9fb714a2f245a6b5ec4ab0740c8, type: 3}
   missleLauncherPrefab: {fileID: 473836493727486499, guid: bbe36735e98c06b4e9b0b731f4f4b82e, type: 3}
+--- !u!114 &1774852866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1774852862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e2997980e621a14489bcff2da039ca9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1778514782
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15615,7 +15647,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 778581405121498417, guid: 1b054ebedb674c74a902ab41a27755d6, type: 3}
       propertyPath: m_Name
-      value: ShopTurretItem
+      value: StandardTurretItem
       objectReference: {fileID: 0}
     - target: {fileID: 778581405121498418, guid: 1b054ebedb674c74a902ab41a27755d6, type: 3}
       propertyPath: m_Pivot.x
@@ -15702,8 +15734,12 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 778581405121498419, guid: 1b054ebedb674c74a902ab41a27755d6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1408412797}
+    - target: {fileID: 778581405121498419, guid: 1b054ebedb674c74a902ab41a27755d6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: PurchaseStandardTurret
+      value: SelectStandardTurret
       objectReference: {fileID: 0}
     - target: {fileID: 778581406006212937, guid: 1b054ebedb674c74a902ab41a27755d6, type: 3}
       propertyPath: m_AnchorMax.y
@@ -15852,6 +15888,14 @@ PrefabInstance:
     - target: {fileID: 3284867907961718178, guid: 3c1d364cd62ba7349b1163d18b54908c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3284867907961718179, guid: 3c1d364cd62ba7349b1163d18b54908c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1408412797}
+    - target: {fileID: 3284867907961718179, guid: 3c1d364cd62ba7349b1163d18b54908c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SelectMisslelauncher
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c1d364cd62ba7349b1163d18b54908c, type: 3}

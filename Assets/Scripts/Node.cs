@@ -8,6 +8,7 @@ public class Node : MonoBehaviour
     private Renderer rend;
     public GameObject turret;
     BuildManager buildManager;
+    public Color notEnoughMoneyColor; 
     // Start is called before the first frame update
     void Start()
     {
@@ -23,7 +24,7 @@ public class Node : MonoBehaviour
     private void OnMouseDown() {
         if (EventSystem.current.IsPointerOverGameObject()) return; 
         if (!buildManager.CanBuild) return;
-        if (turret != null) {
+        if (turret != null) { 
             return;
         }
         buildManager.BuildTurretOn(this );
@@ -31,8 +32,13 @@ public class Node : MonoBehaviour
 
     private void OnMouseEnter() {
         if(EventSystem.current.IsPointerOverGameObject()) return;
-        if (!buildManager.CanBuild) return;    
-        rend.material.color = hoverColor;
+        if (!buildManager.CanBuild) return;
+        if (buildManager.HasMoney) {
+            rend.material.color = hoverColor;
+        } 
+        else {
+            rend.material.color = notEnoughMoneyColor;
+        }
     }
 
     private void OnMouseExit() {

@@ -3,7 +3,7 @@ using UnityEngine;
 using TMPro;
 using System;
 
-public class WaveMaster : MonoBehaviour
+public class WaveSpawner : MonoBehaviour
 {
     public Transform enemyPrefab;
     public float timeBetweenWaves = 5f;
@@ -13,12 +13,13 @@ public class WaveMaster : MonoBehaviour
     public TextMeshProUGUI waveCountDowntText;
 
     void Update() {
-        if(countDown <= 0f) {
+        if (countDown <= 0f) {
             StartCoroutine(SpawnWave());
             countDown = timeBetweenWaves;
         }
         countDown -= Time.deltaTime;
-        waveCountDowntText.text = MathF.Round(countDown).ToString();
+        countDown = Mathf.Clamp(countDown, 0f, Mathf.Infinity);
+        waveCountDowntText.text = string.Format("{0:00.00}", countDown);
     }
 
     IEnumerator SpawnWave() {
